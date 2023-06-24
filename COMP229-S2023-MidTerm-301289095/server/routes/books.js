@@ -14,11 +14,8 @@ router.get('/', (req, res, next) => {
       return console.error(err + 'This is an error');
     }
     else {
-      
-      console.log(books);
-      
       res.render('books/index', {
-        title: 'Booksasasasasasasasas',
+        title: 'Books',
         books: books
       });
     }
@@ -29,9 +26,18 @@ router.get('/', (req, res, next) => {
 //  GET the Book Details page in order to add a new Book
 router.get('/add', (req, res, next) => {
 
-    /*****************
-     * ADD CODE HERE *
-     *****************/
+  book.find( (err, books) => {
+    if (err) {
+      return console.error(err + 'This is an error');
+    }
+    else {
+      res.render('books/details', {
+        title: 'Book Add',
+        books: books
+      });
+    }
+  });
+
 
 });
 
@@ -41,6 +47,22 @@ router.post('/add', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
+
+    let newBook = new book({
+      "Title": req.body.title,
+      "Description": req.body.title,
+      "Price": req.body.price,
+      "Author": req.body.author,
+      "Genre": req.body.genre
+  });
+
+  try{
+    newBook.save();
+      res.redirect('/books');
+  } catch (err) {
+      console.log(err);
+      res.status(500).send(err);
+  }
 
 });
 
