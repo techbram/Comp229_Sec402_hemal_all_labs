@@ -11,11 +11,14 @@ router.get('/', (req, res, next) => {
   // find all books in the books collection
   book.find( (err, books) => {
     if (err) {
-      return console.error(err);
+      return console.error(err + 'This is an error');
     }
     else {
+      
+      console.log(books);
+      
       res.render('books/index', {
-        title: 'Books',
+        title: 'Booksasasasasasasasas',
         books: books
       });
     }
