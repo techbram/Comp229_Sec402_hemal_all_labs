@@ -67,7 +67,7 @@ module.exports.processEditPage = async (req, res, next) =>{
     let id = req.params.id;
     let updatedBook = {
         "Title": req.body.title,
-        "Description": req.body.title,
+        "Description": req.body.description,
         "Price": req.body.price,
         "Author": req.body.author,
         "Genre": req.body.genre
