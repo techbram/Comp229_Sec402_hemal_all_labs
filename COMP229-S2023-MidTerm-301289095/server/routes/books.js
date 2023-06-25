@@ -4,92 +4,26 @@ let router = express.Router();
 let mongoose = require('mongoose');
 
 // define the book model
-let book = require('../models/books');
+let Book = require('../models/books');
+let bookController = require('../controllers/book');
+
 
 /* GET books List page. READ */
-router.get('/', (req, res, next) => {
-  // find all books in the books collection
-  book.find( (err, books) => {
-    if (err) {
-      return console.error(err + 'This is an error');
-    }
-    else {
-      res.render('books/index', {
-        title: 'Books',
-        books: books
-      });
-    }
-  });
+router.get('/', bookController.displayBookList);
 
-});
+// Get Route for displaying the Add page - CREATE Operation
+router.get('/add', bookController.displayAddPage);
 
-//  GET the Book Details page in order to add a new Book
-router.get('/add', (req, res, next) => {
+// Post Route for processing the Add Page - CREATE Operation
+router.post('/add', bookController.processAddPage);
 
-  book.find( (err, books) => {
-    if (err) {
-      return console.error(err + 'This is an error');
-    }
-    else {
-      res.render('books/details', {
-        title: 'Book Add',
-        books: books
-      });
-    }
-  });
+// Get Route for displaying the Edit Page - UPDATE Operation
+router.get('/edit/:id', bookController.displayEditPage);
 
+// Post Route for processing the Edit Page - UPDATE Operation
+router.post('/edit/:id', bookController.processEditPage);
 
-});
-
-// POST process the Book Details page and create a new Book - CREATE
-router.post('/add', (req, res, next) => {
-
-    /*****************
-     * ADD CODE HERE *
-     *****************/
-
-    let newBook = new book({
-      "Title": req.body.title,
-      "Description": req.body.title,
-      "Price": req.body.price,
-      "Author": req.body.author,
-      "Genre": req.body.genre
-  });
-
-  try{
-    newBook.save();
-      res.redirect('/books');
-  } catch (err) {
-      console.log(err);
-      res.status(500).send(err);
-  }
-
-});
-
-// GET the Book Details page in order to edit an existing Book
-router.get('/:id', (req, res, next) => {
-
-    /*****************
-     * ADD CODE HERE *
-     *****************/
-});
-
-// POST - process the information passed from the details form and update the document
-router.post('/:id', (req, res, next) => {
-
-    /*****************
-     * ADD CODE HERE *
-     *****************/
-
-});
-
-// GET - process the delete by user id
-router.get('/delete/:id', (req, res, next) => {
-
-    /*****************
-     * ADD CODE HERE *
-     *****************/
-});
-
+// Get to perform Deletion - DElETE Operation
+router.get('/delete/:id', bookController.performDelete);
 
 module.exports = router;

@@ -2,7 +2,7 @@
 
     <!-- MAIN CONTENT -->
     <div class="container">
-      Total: <%= books.length %>
+      Total: <%= BookList.length %>
       <div class="row">
         <div class="col-md-offset-1 col-md-10">
           <h3>Favourite Books List </h3>
@@ -25,22 +25,26 @@
                 </thead>
                 <tbody>
                 <!-- Template Row -->
-                <% for (let count = 0; count < books.length; count++) { %>
+                <% for (let count = 0; count < BookList.length; count++) { %>
                 <tr>
-                  <td><%= books[count].Title %></td>
-                  <td class="text-center">$<%= books[count].Price %></td>
-                  <td class="text-center"><%= books[count].Author %></td>
-                  <td class="text-center"><%= books[count].Genre %></td>
+                  <td><%= BookList[count].Title %></td>
+                  <td class="text-center">$<%= BookList[count].Price %></td>
+                  <td class="text-center"><%= BookList[count].Author %></td>
+                  <td class="text-center"><%= BookList[count].Genre %></td>
 
                   <td class="text-center">
                     <!-- ------------------------ -->
                     <!-- ADD the EDIT BUTTON HERE -->
+                    <a href="/books/edit/<%= BookList[count]._id %>" class="btn btn-primary btn-sm">
+                      <i class="fas fa-pencil-alt"></i> Edit</a>
                     <!-- ------------------------ -->
                   </td>
 
                   <td class="text-center">
                     <!-- ------------------------ -->
                     <!-- ADD the DELETE BUTTON HERE -->
+                    <a href="/books/delete/<%= BookList[count]._id %>" class="btn btn-danger btn-sm">
+                      <i class="fas fa-trash-alt"></i> Delete</a>
                     <!-- ------------------------ -->
                   </td>
                 </tr>
