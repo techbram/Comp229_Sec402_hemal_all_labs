@@ -1,3 +1,7 @@
+// Student’s Name: Hemal Vaghela
+// StudentID: 301289095 
+// Date: June 25, 2023
+
 let mongoose = require('mongoose');
 
 // create a model class

@@ -1,3 +1,9 @@
+// Student’s Name: Hemal Vaghela
+// StudentID: 301289095 
+// Date: June 25, 2023
+
+
+
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
@@ -5,7 +11,7 @@ let mongoose = require('mongoose');
 // create a reference to the model
 let Book = require('../models/books');
 
-
+// display book list
 module.exports.displayBookList = async (req, res, next) => {
     try {
         let bookList = await Book.find();
@@ -20,6 +26,7 @@ module.exports.displayBookList = async (req, res, next) => {
     }
 };
 
+// display add page
 module.exports.displayAddPage = async (req, res, next) =>{
     try {
         res.render('books/add', {
@@ -30,6 +37,7 @@ module.exports.displayAddPage = async (req, res, next) =>{
     }
 };
 
+// process the add page, add data to db server
 module.exports.processAddPage = async (req, res, next) =>{
     let newBook = new Book({
         "Title": req.body.title,
@@ -48,6 +56,7 @@ module.exports.processAddPage = async (req, res, next) =>{
     }
 };
 
+// display edit page 
 module.exports.displayEditPage = async (req, res, next) =>{
     let id = req.params.id;
 
@@ -63,6 +72,7 @@ module.exports.displayEditPage = async (req, res, next) =>{
     }
 };
 
+// process edit record. update data on server
 module.exports.processEditPage = async (req, res, next) =>{
     let id = req.params.id;
     let updatedBook = {
@@ -82,6 +92,7 @@ module.exports.processEditPage = async (req, res, next) =>{
     }
 };
 
+// delete the selected record from db server
 module.exports.performDelete = async (req, res, next) =>{
     let id = req.params.id;
 
