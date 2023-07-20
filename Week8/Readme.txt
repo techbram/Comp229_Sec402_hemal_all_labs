@@ -1,1 +1,2 @@
 This is the working copy where we are writing all the code based on videos provided by teacher.
+19 July. 8.17pm - Cleared up to four videos.
