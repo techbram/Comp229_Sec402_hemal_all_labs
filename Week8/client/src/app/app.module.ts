@@ -11,7 +11,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { ServiceComponent } from './pages/service/service.component';
 import { BasePageComponent } from './partials/base-page/base-page.component';
-import { GameStoreComponent } from './game-store/game-store.component';
+import { GameStoreModule } from './game-store/game-store.module';
 
 
 @NgModule({
@@ -24,14 +24,20 @@ import { GameStoreComponent } from './game-store/game-store.component';
     ContactComponent,
     ProductsComponent,
     ServiceComponent,
-    BasePageComponent,
-    GameStoreComponent    
+    BasePageComponent,    
+        
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    GameStoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+
+
+

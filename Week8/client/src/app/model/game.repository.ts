@@ -17,12 +17,12 @@ export class GameRepository
     });
   }
 
-  getGames(developer: string | null = null): Game[]
+  getGames(developer: string = null): Game[]
   {
     return this.games
       .filter(b => developer == null || developer === b.developer);
   }
-
+ 
   getGame(id: number): Game | undefined
   {
     return this.games.find(b => b._id === id);
@@ -32,4 +32,5 @@ export class GameRepository
   {
     return this.devs;
   }
+
 }

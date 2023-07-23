@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Game } from '../model/game.model';
+//import { Game } from '../model/game.model';
 import { GameRepository} from './game.repository';
 import { StaticDataSource } from './static.datasource';
 
@@ -17,19 +17,24 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class ModelModule 
 {
-  public selectedDeveloper = null;
-  public booksPerPage = 4;
-  public selectedPage = 1;
+  // public selectedDeveloper = null;
+  // public booksPerPage = 4;
+  // public selectedPage = 1;
 
-  constructor(private repository: GameRepository) { }
+  // constructor(private repository: GameRepository) { }
 
-  ngOnInit():void{}
+  // ngOnInit():void{}
 
   
-  get developers(): string[]
-  {
-    return this.repository.getDevs();
-  }
+  // get developers(): string[]
+  // {
+  //   return this.repository.getDevs();
+  // }
+
+  // get games(): Game[]
+  // {
+  //   return this.repository.getGames();
+  // }
 
 
 

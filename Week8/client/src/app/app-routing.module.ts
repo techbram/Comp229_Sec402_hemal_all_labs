@@ -4,6 +4,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { ServiceComponent } from './pages/service/service.component';
+import { GameStoreComponent } from './game-store/game-store.component';
 import { ContactComponent } from './pages/contact/contact.component';
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
 {path:'about', component:AboutComponent, data: {title:'About'}},
 {path:'product', component:ProductsComponent, data: {title:'Product'}},
 {path:'service', component:ServiceComponent, data: {title:'Service'}},
+//{path:'game-list', component:GameStoreComponent, data: {title:'Game Store'}},
 {path:'contact', component:ContactComponent, data: {title:'Contact'}},
 {path:'', redirectTo:'/home', pathMatch:'full'}
 ];
